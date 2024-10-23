@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bnsta</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="container max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg">
+    <h1 class="text-4xl font-bold text-center mb-6">B!nsta</h1>
+    <form action="/search" method="POST" class="flex flex-col">
+      <input type="text" name="username" placeholder="Search Username" required class="border border-gray-300 p-3 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200">
+      <button type="submit" class="bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-200">Search</button>
+    </form>
+    <% if (typeof error !== 'undefined') { %>
+      <div class="error-popup text-red-500 mt-4 text-center"><%= error %></div>
+    <% } %>
+  </div>
+</body>
+</html>

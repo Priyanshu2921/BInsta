@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= username %> - Post</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100">
+    <div class="search-bar mb-6 mt-4 flex items-center justify-center">
+      <!-- Header -->
+      <h1
+        class="text-3xl font-bold cursor-pointer mr-4"
+        onclick="window.location.href='/'"
+      >
+        B!nsta
+      </h1>
+
+      <input
+        type="text"
+        placeholder="Search for users..."
+        id="search-input"
+        class="border border-gray-300 p-2 rounded-l w-full max-w-md"
+      />
+      <button
+        onclick="searchUser()"
+        class="search-btn bg-blue-500 text-white p-2 rounded-r hover:bg-blue-600 transition duration-200 h-full"
+      >
+        Search
+      </button>
+    </div>
+    <div class="container mx-auto p-4 flex">
+      <!-- Left Side: Post Image -->
+      <div
+        class="post-image w-2/3 flex justify-center overflow-hidden items-center object-contain"
+      >
+        <img
+          src="<%= post.image %>"
+          alt="Post Image"
+          class="w-full h-96 object-contain"
+        />
+      </div>
+
+      <!-- Right Side: User and Post Details -->
+      <div class="post-details w-1/3 bg-white p-4 rounded-lg shadow-md">
+        <!-- User Info -->
+        <div class="flex items-center mb-4">
+          <!-- Profile Picture and Username -->
+          <div class="flex items-center flex-grow">
+            <!-- Profile Picture -->
+            <div
+              class="profile-pic w-12 h-12 rounded-full border-2 border-gray-300 overflow-hidden"
+            >
+              <img
+                src="<%= userProfilePicture %>"
+                alt="Profile Picture"
+                class="w-full h-full object-cover hover:cursor-pointer"
+                onclick="window.location.href='/user/<%= username %>'"
+              />
+            </div>
+            <!-- Username -->
+            <div class="ml-2">
+              <h2 class="text-3xl font-bold"><%= username %></h2>
+            </div>
+          </div>
+          <!-- Right Side: Follow Button -->
+          <button
+            class="follow-btn bg-blue-500 text-white py-1 px-4 rounded hover:bg-blue-600 transition duration-200"
+          >
+            +Follow
+          </button>
+        </div>
+
+     
+        <hr class="my-4 border-gray-300" />
+        <!-- Comments Section -->
+        <div class="comments-section mt-4">
+          <h3 class="text-xl font-semibold mb-2">Comments</h3>
+          <% if (comments.length > 0) { %>
+            <% comments.forEach(comment => { %>
+              <div class="comment bg-gray-100 p-3 rounded-lg mb-2">
+                <p class="font-bold"><%= comment %></p>
+              </div>
+            <% }) %>
+          <% } else { %>
+            <p class="text-gray-500">No comments yet. Be the first to comment!</p>
+          <% } %>
+        </div>
+
+        <!-- Like Button -->
+        <div class="like-btn flex justify-end mt-4">
+          <button onclick="toggleLike()" class="flex items-center">
+            <span
+              id="like-icon"
+              class="material-icons <%= post.liked ? 'text-red-500' : '' %>"
+            >
+              favorite_border
+            </span>
+            <span class="ml-1"><%= post.likes %> likes</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleLike() {
+        const likeIcon = document.getElementById("like-icon");
+        likeIcon.textContent =
+          likeIcon.textContent === "favorite" ? "favorite_border" : "favorite";
+        likeIcon.classList.toggle("text-red-500");
+      }
+
+      function searchUser() {
+        const searchInput = document.getElementById("search-input").value;
+        window.location.href = `/user/${searchInput}`;
+      }
+    </script>
+  </body>
+</html>

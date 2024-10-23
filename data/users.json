@@ -1,0 +1,80 @@
+{
+    "users": [
+      {
+        "username": "Naruto",
+        "userProfilePicture": "https://img.freepik.com/premium-photo/naruto-illustration-icon-cartoon-graphic_1070876-7005.jpg",
+        "userFollowers": 150,
+        "userFollowing": 50,
+        "userBio": "Hokage in training, ramen lover, and a true ninja. Believe it!",
+        "posts": [
+          {
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl4OcBblEhd0zUwN1B7M3b5SSrLzJ7hLZKQw&s",
+            "likes": 30,
+            "liked": false,
+            "comments": ["Nice post!", "Loved it!"]
+          },
+          {
+            "image": "https://images.immediate.co.uk/production/volatile/sites/3/2023/04/naruto-762b09d.jpg?quality=90&resize=556,505",
+            "likes": 15,
+            "liked": false,
+            "comments": ["Awesome!", "So cool!"]
+          }
+        ]
+      },
+      {
+        "username": "Goku",
+        "userProfilePicture": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/734e81d8-ee56-406d-a6ad-65a68916da85/dgmoq0q-1b62c95c-62f3-4368-846d-90bde1931734.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzczNGU4MWQ4LWVlNTYtNDA2ZC1hNmFkLTY1YTY4OTE2ZGE4NVwvZGdtb3EwcS0xYjYyYzk1Yy02MmYzLTQzNjgtODQ2ZC05MGJkZTE5MzE3MzQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.gpnlo8_HFFMX4TXYlvOZiEzssDdLU4M9cbow99x9FyQ",
+        "userFollowers": 200,
+        "userFollowing": 100,
+        "userBio": "The strongest Saiyan, protector of Earth, and always ready for a challenge!",
+        "posts": [
+          {
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVFnG23QubqEMsM3z1rKGVvMTaCfsWwrokyQ&s",
+            "likes": 40,
+            "liked": false,
+            "comments": ["Great shot!", "Amazing!"]
+          },
+          {
+            "image": "https://rukminim2.flixcart.com/image/850/1000/xif0q/poster/q/w/y/medium-goku-dragon-ball-z-hd-matte-finish-poster-gebutcte4238-original-imaghe3yz6wr36mn.jpeg?q=90&crop=false",
+            "likes": 101,
+            "liked": false,
+            "comments": ["Great shot!", "Amazing!","Loved it!"]
+          },
+          {
+            "image": "https://images8.alphacoders.com/135/1355096.jpeg",
+            "likes": 30,
+            "liked": false,
+            "comments": ["Great shot!", "Amazing!","Zing Zing"]
+          },
+          {
+            "image": "https://dragonball.guru/wp-content/uploads/2021/03/goku-profile-e1616173641804-400x400.png",
+            "likes": 70,
+            "liked": false,
+            "comments": []
+          }
+        ]
+      },
+      {
+        "username": "Pikachu",
+        "userProfilePicture": "https://cdn.pixabay.com/photo/2023/04/11/18/35/pikachu-7917962_640.jpg",
+        "userFollowers": 450,
+        "userFollowing": 500,
+        "userBio": "Pika Pika Pikachuuuuuuuu Believe it!",
+        "posts": [
+          {
+            "image": "https://images7.alphacoders.com/134/1348996.png",
+            "likes": 300,
+            "liked": false,
+            "comments": ["Like a thunder", "Its not Pokimon it is Pookiemon"]
+          },
+          {
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6WqEblWzeQ46TnivV-fITWKnYmNKZgNulkQ&s",
+            "likes": 150,
+            "liked": false,
+            "comments": ["Awesome Wowwwwwww!", "So cool lightning!"]
+          }
+        ]
+      }
+    ]
+  }
+  

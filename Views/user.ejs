@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= username %> - Profile</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+      <div class="search-bar mb-6 flex items-center justify-center">
+        <h1
+          class="text-3xl font-bold cursor-pointer mr-4"
+          onclick="window.location.href='/'"
+        >
+          B!nsta
+        </h1>
+
+        <input
+          type="text"
+          placeholder="Search for users..."
+          id="search-input"
+          class="border border-gray-300 p-2 rounded-l w-full max-w-md"
+        />
+        <button
+          onclick="searchUser()"
+          class="search-btn bg-blue-500 text-white p-2 rounded-r hover:bg-blue-600 transition duration-200 h-full"
+        >
+          Search
+        </button>
+      </div>
+
+      <div class="profile-header flex flex-col md:flex-row items-center mb-8">
+        <div class="profile-pic w-36 h-36 rounded-full border-2 border-gray-300 overflow-hidden flex items-center justify-center mr-4">
+          <img
+            src="<%= userProfilePicture %>"
+            alt="Profile Picture"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <div class="flex-1">
+          <div class="flex justify-between items-center mb-2">
+            <h2 class="text-5xl font-bold"><%= username %></h2>
+            <div class="buttons flex space-x-4">
+              <button
+                class="edit-profile border border-gray-300 bg-white py-2 px-4 rounded hover:bg-gray-100 transition duration-200"
+              >
+                Edit Profile
+              </button>
+              <span
+                class="material-icons settings-icon cursor-pointer text-gray-600 text-2xl hover:text-gray-900 transition duration-200"
+                >settings</span
+              >
+            </div>
+          </div>
+          <div class="flex space-x-4">
+            <p class="text-gray-600"><%= userFollowers %> Followers</p>
+            <p class="text-gray-600"><%= userFollowing %> Following</p>
+          </div>
+          <div class="about-section mb-4">
+            <p class="text-black text-xl font-bold"><%= userBio %></p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-4 border-gray-300" />
+
+      <div class="posts-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <% posts.forEach(function(post, index) { %>
+        <div class="post-item border border-gray-300 rounded-lg overflow-hidden transition-shadow duration-200 hover:shadow-lg">
+          <a href="/user/<%= username %>/post/<%= index %>">
+            <img
+              src="<%= post.image %>"
+              alt="Post Image"
+              class="w-full h-48 object-contain"
+            />
+          </a>
+          <div class="post-actions flex justify-between p-2">
+            <button
+              onclick="toggleLike(<%= index %>)"
+              class="like-btn flex items-center"
+              id="like-btn-<%= index %>"
+            >
+              <span class="material-icons <%= post.liked ? 'text-red-500' : '' %>">favorite_border</span>
+              <%= post.likes %>
+            </button>
+            <button
+              onclick="toggleComments(<%= index %>)"
+              class="comment-btn flex items-center"
+            >
+              <span class="material-icons">comment</span> <%= post.comments.length %>
+            </button>
+          </div>
+
+          <div
+            class="comments-section mt-2 border-t border-gray-300 p-2 hidden"
+            id="comments-<%= index %>"
+          >
+            <% if (post.comments.length > 0) { %>
+              <% post.comments.forEach(function(comment) { %>
+              <p class="text-gray-700"><%= comment %></p>
+              <% }) %>
+            <% } else { %>
+              <p class="italic text-gray-500">No comments, be the first one to do so.</p>
+            <% } %>
+            <div class="comment-box flex items-center mt-2">
+              <input
+                type="text"
+                id="comment-input-<%= index %>"
+                placeholder="Add a comment..."
+                class="border border-gray-300 p-2 bg-transparent rounded-l w-full"
+              />
+              <button
+                onclick="addComment(<%= index %>)"
+                class="bg-blue-500 text-white p-2 rounded-r hover:bg-blue-600 transition duration-200"
+              >
+                Comment
+              </button>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+
+    <script>
+      function toggleLike(index) {
+        const likeBtn = document.getElementById(`like-btn-${index}`);
+        const likeIcon = likeBtn.querySelector(".material-icons");
+
+        if (likeIcon.textContent === "favorite") {
+          likeIcon.textContent = "favorite_border";
+          likeIcon.classList.remove("text-red-500");
+        } else {
+          likeIcon.textContent = "favorite";
+          likeIcon.classList.add("text-red-500"); 
+        }
+      }
+
+      function toggleComments(index) {
+        const commentsSection = document.getElementById(`comments-${index}`);
+        commentsSection.classList.toggle("hidden");
+      }
+
+      function addComment(index) {
+        const commentInput = document.getElementById(`comment-input-${index}`);
+        const commentText = commentInput.value;
+
+        if (commentText) {
+          // Updateing the comments section dynamically
+          const commentsSection = document.getElementById(`comments-${index}`);
+          const newComment = document.createElement('p');
+          newComment.className = 'text-gray-700';
+          newComment.textContent = commentText;
+          commentsSection.appendChild(newComment);
+
+          // Clearing the input field
+          commentInput.value = '';
+        }
+      }
+
+      function searchUser() {
+        const searchInput = document.getElementById("search-input").value;
+        window.location.href = `/user/${searchInput}`;
+      }
+    </script>
+  </body>
+</html>

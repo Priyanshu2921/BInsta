@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.error-popup {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
